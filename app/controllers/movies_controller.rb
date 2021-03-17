@@ -24,6 +24,9 @@ class MoviesController < ApplicationController
     @movie = Movie.find params[:id]
   end
 
+  def selected_ratings
+    
+  end
   def update
     @movie = Movie.find params[:id]
     @movie.update_attributes!(movie_params)
