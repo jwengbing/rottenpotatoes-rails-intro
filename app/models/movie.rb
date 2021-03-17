@@ -1,9 +1,10 @@
 class Movie < ActiveRecord::Base
   def self.all_ratings
-    return self
+    #return ['G','PG','PG-13','R']
+    %w(G PG PG-13 R)
   end
-  def self.filter_by_ratings(selected)
-    for rate in selected
-      return Movie.where(rating: rate)      
+  
+  def self.filter_by_ratings( selected_ratings )
+      Movie.where( rating:selected_ratings )
   end
 end
