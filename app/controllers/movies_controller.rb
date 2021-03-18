@@ -7,9 +7,8 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
-    #examine params and session hash
-    
+    #@movies = Movie.all
+
     update_session_hash
     render_redirect
     determine_highlighting
@@ -69,7 +68,7 @@ class MoviesController < ApplicationController
   def determine_highlighting
     @highlight = {:title => "", :release_date => "", :id => ""} 
     #"bg-warning hilite"
-    @highlight[@sorting] = "bg-warning hilite"
+    @highlight[session[:sorting]] = "bg-warning hilite"
   end
   
   def update_session_hash
